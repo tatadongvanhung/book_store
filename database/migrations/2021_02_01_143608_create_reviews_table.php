@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->integer('book_id');
             $table->integer('customer_id');
             $table->integer('rate'); //review star number
-            $table->interger('note'); //review comment
+            $table->integer('note'); //review comment
             $table->timestamps();
         });
     }
