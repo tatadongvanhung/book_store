@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Genres extends Migration
+class CreatePublisherTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class Genres extends Migration
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('publisher', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->string('name');
-            $table->string('note')->nullable();
+            $table->string('address')->nullable();
+            $table->string('note',500)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class Genres extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('publisher');
     }
 }

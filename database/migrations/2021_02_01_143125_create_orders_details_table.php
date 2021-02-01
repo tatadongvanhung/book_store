@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class OrdersDetails extends Migration
+class CreateOrdersDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,11 @@ class OrdersDetails extends Migration
     {
         Schema::create('orders_details', function (Blueprint $table) {
             $table->bigInteger('id')->autoIncrement();
-            $table->int('order_id');
-            $table->int('book_id');
-            $table->int('quantity');//Số lượng
-            $table->int('amount');//Thành tiền
+            $table->integer('order_id');
+            $table->integer('book_id');
+            $table->integer('quantity');//Số lượng
+            $table->integer('amount');//Thành tiền
+            $table->timestamps();
         });
     }
 

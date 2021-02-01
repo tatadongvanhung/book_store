@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Shipper extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Shipper extends Migration
      */
     public function up()
     {
-        Schema::create('shipper', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('name');
-            $table->string('phone_number');
-            $table->string('address')->nullable();
+            $table->date('order_date');
+            $table->integer('customer_id');
+            $table->integer('shipper_id')->nullable();
+            $table->string('receive_address',500);
+            $table->string('note',500)->nullable();
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class Shipper extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipper');
+        Schema::dropIfExists('orders');
     }
 }
